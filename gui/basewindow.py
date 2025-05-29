@@ -11,15 +11,19 @@ from gui.helpers.cleaning import format_days
 class Base_Window(tk.Tk):
     def __init__(self):
         super().__init__()
+
+        #TODO: All of this could look a lot prettier
         #CREATE WINDOW CONFIG
         self.title("Scheduler 0.0.1")
         self.geometry(f'{self.winfo_screenwidth()}x{self.winfo_screenheight()-100}+0+0')
-
+        
+        #TODO: Should probably resize the window to something sleeker
         #TOP-LEVEL CONTAINER
         self.table_frame = tk.Frame(self)
         self.table_frame.pack(expand=True, fill=tk.BOTH)
 
-        #OVERVIEW
+        # TODO: Maybe have the name more prominently presented
+        #OVERVIEW TREE
         self.overview_tree = ttk.Treeview(self.table_frame, columns=('Team Name', 'Sub-Teams', 'Shifts', 'Operating Days'), show="headings")
         self.overview_tree.heading("Team Name", text="Team Name")
         self.overview_tree.heading("Sub-Teams", text="Sub-Teams")
@@ -29,6 +33,7 @@ class Base_Window(tk.Tk):
 
         self.overview_row_ids = []
 
+        # TODO: Gotta collect all subteam data except for the name
         #SUB-TEAM TREE
         self.subteam_tree = ttk.Treeview(self.table_frame, columns=('Name', 'Member Count', 'Minimum Coverage'), show="headings")
         self.subteam_tree.heading("Name", text="Name")
@@ -38,7 +43,8 @@ class Base_Window(tk.Tk):
 
         self.subteam_row_ids = []
 
-        #DISPLAY OF TEAM MEMBERS
+        # TODO: Gotta grab all member data too
+        #DISPLAY OF TEAM MEMBERS TREE
         self.member_tree = ttk.Treeview(self.table_frame, columns=('Name','Team', 'Available for Shifts', 'Required Days Off', 'Preferred Days Off'), show="headings")
         self.member_tree.heading("Name", text="Name")
         self.member_tree.heading("Team", text="Team")
@@ -144,5 +150,10 @@ class Base_Window(tk.Tk):
                     insert_values_func=lambda val: ('', '', '', val)
                 )
 
-    #TODO: Next is 
+    #TODO: Next might be user_prompt_update_subteam_minimums
+    #TODO: we already have an array of subteam names in self.subteam_name_list
+    #TODO: I'd make a modal that asks how many people are required on each day of the week 
+    #TODO:      
+    #TODO:          
+    #TODO:
             

@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from tkinter.filedialog import askopenfilename
-from gui.basewindow import Base_Window
+from gui.basewindow import Base_Window 
 
 
 
@@ -70,9 +70,9 @@ class Create_Team_Window(Base_Window):
 
         self.after(100, self.start_modals)
 
-        # TODO  grab the parameters - month, shifts, days of the week operating, holidays, min coverage
+        # TODO  grab the parameters - shifts, subteams, days of the week operating, min coverage
     
-    def start_modals(self): # BUG: There's another window that pops up after each of these but I have no idea why
+    def start_modals(self): # BUG: There's another window that sometimes pops up after each of these but I have no idea why
         # Grab team name
         self.user_prompt_update_team_name()
         
@@ -84,3 +84,5 @@ class Create_Team_Window(Base_Window):
 
         # Grab operating days
         self.user_prompt_update_operating_days()
+
+        #TODO: Grab min coverage
