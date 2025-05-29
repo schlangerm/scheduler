@@ -17,5 +17,7 @@ where to start?
   
 
 Clone the repo
+
 open it in your favorite ide
+
 go nuts
